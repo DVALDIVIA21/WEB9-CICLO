@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iglesia de Dios del Perú</title>
+    <title>Panel de Administración - Iglesia de Dios del Perú</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="styles/main.css">
@@ -11,91 +11,89 @@
 <body>
     <!-- Video de fondo -->
     <div class="video-background">
-         <video autoplay muted loop id="bg-video">
-        <source src="assets/images/fondo-animado.webm" type="video/webm">
+        <video autoplay muted loop id="bg-video">
+            <source src="assets/images/fondo-animado.webm" type="video/webm">
         </video>
         <div class="video-overlay"></div>
     </div>
 
-    <!-- Barra de navegación superior -->
-<header class="navbar">
-    <div class="container">
-        <a href="index.html" class="logo">
-            <img src="assets/images/logo.png" alt="Iglesia de Dios del Perú">
-        </a>
-        <nav class="nav-links">
-            <a href="index.html" class="nav-link">Inglesia de Dios del Perú</a>
-            
-            <!-- Quienes Somos -->
-            <div class="nav-dropdown-container">
-                 <href="index.html" class="nav-link">QUIENES SOMOS
-                <div class="nav-dropdown-menu">
-                    <a href="#">Directiva Nacional</a>
-                    <a href="#">Misión-Visión-Valores</a>
-                    <a href="#">Historia de La Iglesia</a>
-                    <a href="#">Principios Doctrinales</a>
-                    <a href="#">¿En que Creemos?</a>
-                    
-                    <!-- Distritos Eclesiales -->
-                    <div class="nav-submenu-container">
-                        <button class="nav-submenu-btn">Distritos Eclesiales</button>
-                        <div class="nav-submenu">
-                            <a href="#">Distrito Barranca Norte</a>
-                            <a href="#">Distrito Barranca Centro</a>
-                            <a href="#">Distrito Barranca Sur</a>
-                            <a href="#">Distrito Medio Mundo</a>
-                            <a href="#">Distrito Huaura</a>
-                            <a href="#">Distrito Huaral</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Liderazgo -->
-            <div class="nav-dropdown-container">
-                 <href="index.html" class="nav-link">LIDERAZGO
-                <div class="nav-dropdown-menu">
-                    <a href="#">Areas Conexión 2030</a>
-                    
-                    <!-- Redes Ministeriales -->
-                    <div class="nav-submenu-container">
-                        <button class="nav-submenu-btn">Redes Ministeriales </button>
-                        <div class="nav-submenu">
-                            <a href="#">Educación Cristiana y Seminario Bíblico</a>
-                            <a href="#">Ministerio de la Mujer (Conectadas)</a>
-                            <a href="#">Ministerios de Varones (Redvull)</a>
-                            <a href="#">Ministerio de Jóvenes y Adolescentes (Generación Emergente y GE-Teens)</a>
-                            <a href="#">Ministerio Infantil</a>
-                            <a href="#">Ministerio de Intercesión</a>
-                            <a href="#">Ministerio de Bienestar Pastoral</a>
-                            <a href="#">Ministerio de Incidencia Pública y Social</a>
-                            <a href="#">Red de Hijos de Pastores al máximo (HMAX)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        <div class="nav-dropdown-container">
-            <href="index.html" class="nav-link">RECURSOS
-            <div class="nav-dropdown-menu">
-                 <a href="#">Plan conexión 20/30</a>
-                 <a href="#">Plan Estrategico regional</a>
-                 <a href="#">POA 2025</a>
-            </div>
-                </div>
-
+    <!-- Barra de navegación superior para administrador -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Iglesia de Dios del Perú">
+            </a>
             <nav class="nav-links">
-            <a href="ubicaciones.html" class="nav-link">UBICANOS</a>
-            
-        </nav>
-        <div class="auth-buttons">
-            <a href="#" class="btn btn-login">Iniciar Sesión</a>
-            <a href="#" class="btn btn-register">Registrarse</a>
+                <a href="admin.html" class="nav-link">Iglesia de Dios del Perú</a>
+                
+                <!-- Quienes Somos -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-link">QUIENES SOMOS</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="#">Directiva Nacional</a>
+                        <a href="#">Misión-Visión-Valores</a>
+                        <a href="#">Historia de La Iglesia</a>
+                        <a href="#">Principios Doctrinales</a>
+                        <a href="#">¿En que Creemos?</a>
+                        
+                        <!-- Distritos Eclesiales -->
+                        <div class="nav-submenu-container">
+                            <button class="nav-submenu-btn">Distritos Eclesiales ▼</button>
+                            <div class="nav-submenu">
+                                <a href="#">Distrito Barranca Norte</a>
+                                <a href="#">Distrito Barranca Centro</a>
+                                <a href="#">Distrito Barranca Sur</a>
+                                <a href="#">Distrito Medio Mundo</a>
+                                <a href="#">Distrito Huaura</a>
+                                <a href="#">Distrito Huaral</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Liderazgo -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-link">LIDERAZGO</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="#">Areas Conexión 2030</a>
+                        
+                        <!-- Redes Ministeriales -->
+                        <div class="nav-submenu-container">
+                            <button class="nav-submenu-btn">Redes Ministeriales ▼</button>
+                            <div class="nav-submenu">
+                                <a href="ministerio-educacionformal.html">Educación Cristiana y Seminario Bíblico</a>
+                                <a href="ministerio-mujeres.html">Ministerio de la Mujer (Conectadas)</a>
+                                <a href="ministerio-varones.html">Ministerios de Varones (Redvull)</a>
+                                <a href="ministerio-jovenesyadolescentes.html">Ministerio de Jóvenes y Adolescentes (Generación Emergente y GE-Teens)</a>
+                                <a href="ministerio-infantil.html">Ministerio Infantil</a>
+                                <a href="ministerio-incideniciapublicapastoral.html">Ministerio de Incidencia Pública y Social</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recursos -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-link">RECURSOS</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="#">Plan conexión 20/30</a>
+                        <a href="#">Plan Estrategico regional</a>
+                        <a href="#">POA 2025</a>
+                    </div>
+                </div>
+                
+                <!-- Nuevo botón Reportes solo para admin -->
+                <a href="reportes.html" class="nav-link">REPORTES</a>
+                
+                <a href="ubicaciones.html" class="nav-link">UBICANOS</a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="index.html" class="btn btn-logout">Salir</a>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal (igual al index.html) -->
     <main>
         <!-- Carrusel principal -->
         <section class="featured-events">
@@ -256,48 +254,9 @@
                 <span class="dot" data-slide="4"></span>
             </div>
         </section>
-        
     </main>
 
-    <!-- Modal de registro -->
-    <div id="modal-register" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Regístrate</h2>
-            <form id="register-form">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Apellidos</label>
-                    <input type="text" id="lastname" name="lastname" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="birthdate">Fecha de nacimiento</label>
-                    <input type="date" id="birthdate" name="birthdate" required>
-                </div>
-                <div class="form-group">
-                    <label for="district">Distrito</label>
-                    <select id="district" name="district" required>
-                        <option value="">Selecciona tu distrito</option>
-                        <option value="Lima">Lima</option>
-                        <option value="Arequipa">Arequipa</option>
-                        <option value="Cusco">Cusco</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" minlength="6" required>
-                </div>
-                <button type="submit" class="btn-submit">Registrarse</button>
-            </form>
-        </div>
-    </div>
+    <!-- No incluimos el modal de registro en la versión de admin -->
 
     <script src="scripts/app.js"></script>
 </body>
