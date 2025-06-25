@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,419 +6,165 @@
     <title>Ubicaciones - Iglesia de Dios del Perú</title>
     <link rel="stylesheet" href="styles/main.css">
     <style>
-        /* Video de fondo */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            object-fit: cover;
-            opacity: 0.3;
-        }
-
-        /* Barra de navegación mejorada */
-        .navbar {
-            background-color: #2a5c99;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo img {
-            height: 50px;
-        }
-
-        .nav-main {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background-color: rgba(255,255,255,0.2);
-            border-radius: 4px;
-        }
-
-        .nav-dropdown-container {
-            position: relative;
-        }
-
-        .nav-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            padding: 15px;
-            min-width: 250px;
-            display: none;
-            z-index: 100;
-        }
-
-        .nav-dropdown-container:hover .nav-dropdown-menu {
-            display: block;
-        }
-
-        .nav-dropdown-menu a {
-            display: block;
-            padding: 8px 0;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-dropdown-menu a:hover {
-            color: #1a3e72;
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-login {
-            color: white;
-            border: 1px solid white;
-        }
-
-        .btn-register {
-            background-color: #2a5c99;
-            color: white;
-        }
-
-        .btn-login:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .btn-register:hover {
-            background-color: #e05d00;
-        }
-
-        /* Contenido principal */
-        .map-section {
-            padding: 40px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            color: #1a3e72;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-        }
-
-        .section-description {
-            color: #555;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
         .locations-container {
             display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 2rem;
+            flex-direction: row;
+            gap: 20px;
         }
-
         .sedes-list {
-            width: 40%;
-            padding: 25px;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            max-height: 700px;
+            width: 80%; /* 4 veces más ancha que el 20% original (aproximadamente) */
+            max-height: 600px;
             overflow-y: auto;
+            background-color: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .sedes-list h2 {
-            color: #2a5c99;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 1.8rem;
-        }
-
-        .sedes-list h3 {
-            color: #1e4a7e;
-            margin: 1.5rem 0 0.8rem;
-            font-size: 1.3rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-
-        .sedes-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sedes-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .sedes-list li:last-child {
-            border-bottom: none;
-        }
-
         .map-wrapper {
-            width: 58%;
-            border-radius: 8px;
+            flex-grow: 1;
+            background: rgba(255,255,255,0.85);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            background-color: white;
-            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
         .map-wrapper iframe {
             width: 100%;
-            height: 700px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .map-section-title {
-            text-align: center;
-            color: #1a3e72;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Modal de registro */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
+            min-height: 600px;
+            border: none;
         }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            position: relative;
+        .sedes-list h3 {
+            margin-top: 1em;
+            color: #2a5c99;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
         }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #777;
+        .sedes-list ul {
+            list-style: none;
+            padding: 0;
         }
-
-        .close-modal:hover {
-            color: #333;
+        .sedes-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
-
-        .form-group {
-            margin-bottom: 20px;
+        .scroll-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .btn-submit {
-            background-color: #1a3e72;
+        .scroll-buttons button {
+            background-color: #2a5c99;
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s;
         }
-
-        .btn-submit:hover {
-            background-color: #14315d;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .locations-container {
-                flex-direction: column;
-            }
-
-            .sedes-list,
-            .map-wrapper {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar-container {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            .nav-main {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .auth-buttons {
-                margin-top: 10px;
-            }
-
-            .map-wrapper iframe {
-                height: 500px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .nav-link {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
-
-            .btn {
-                padding: 8px 15px;
-                font-size: 13px;
-            }
-
-            .sedes-list {
-                padding: 15px;
-            }
-
-            .sedes-list h2 {
-                font-size: 1.5rem;
-            }
-
-            .sedes-list h3 {
-                font-size: 1.1rem;
-            }
+        .scroll-buttons button:hover {
+            background-color: #1a3e72;
         }
     </style>
 </head>
 <body>
     <!-- Video de fondo -->
-    <video autoplay muted loop class="video-background">
-        <source src="assets/videos/background.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5
-    </video>
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video">
+            <source src="assets/images/fondo-animado.webm" type="video/webm">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
-    <!-- Barra de navegación mejorada -->
+    <!-- Barra de navegación superior para administrador (reemplazada) -->
     <header class="navbar">
-        <div class="navbar-container">
+        <div class="container">
             <a href="index.html" class="logo">
                 <img src="assets/images/logo.png" alt="Iglesia de Dios del Perú">
             </a>
-
-            <nav class="nav-main">
-                <a href="index.html" class="nav-link">Iglesia de Dios del Perú</a>
+            <nav class="nav-links">
+                <a href="admin.html" class="nav-link">Iglesia de Dios del Perú</a>
                 
-                <!-- Quienes Somos con menú desplegable -->
+                <!-- Quienes Somos -->
                 <div class="nav-dropdown-container">
-                    <a href="#" class="nav-link">QUIENES SOMOS</a>
+                    <button class="nav-link">QUIENES SOMOS</button>
                     <div class="nav-dropdown-menu">
                         <a href="#">Directiva Nacional</a>
-                        <a href="#">Misión y Visión</a>
-                        <a href="#">Historia</a>
+                        <a href="#">Misión-Visión-Valores</a>
+                        <a href="#">Historia de La Iglesia</a>
                         <a href="#">Principios Doctrinales</a>
-                        <a href="#">¿En qué creemos?</a>
+                        <a href="#">¿En que Creemos?</a>
+                        
+                        <!-- Distritos Eclesiales -->
+                        <div class="nav-submenu-container">
+                            <button class="nav-submenu-btn">Distritos Eclesiales ▼</button>
+                            <div class="nav-submenu">
+                                <a href="#">Distrito Barranca Norte</a>
+                                <a href="#">Distrito Barranca Centro</a>
+                                <a href="#">Distrito Barranca Sur</a>
+                                <a href="#">Distrito Medio Mundo</a>
+                                <a href="#">Distrito Huaura</a>
+                                <a href="#">Distrito Huaral</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Liderazgo con menú desplegable -->
+                <!-- Liderazgo -->
                 <div class="nav-dropdown-container">
-                    <a href="#" class="nav-link">LIDERAZGO</a>
+                    <button class="nav-link">LIDERAZGO</button>
                     <div class="nav-dropdown-menu">
-                        <a href="#">Consejo Nacional</a>
-                        <a href="#">Pastores</a>
-                        <a href="#">Redes Ministeriales</a>
+                        <a href="#">Areas Conexión 2030</a>
+                        
+                        <!-- Redes Ministeriales -->
+                        <div class="nav-submenu-container">
+                            <button class="nav-submenu-btn">Redes Ministeriales ▼</button>
+                            <div class="nav-submenu">
+                                <a href="ministerio-educacionformal.html">Educación Cristiana y Seminario Bíblico</a>
+                                <a href="ministerio-mujeres.html">Ministerio de la Mujer (Conectadas)</a>
+                                <a href="ministerio-varones.html">Ministerios de Varones (Redvull)</a>
+                                <a href="ministerio-jovenesyadolescentes.html">Ministerio de Jóvenes y Adolescentes (Generación Emergente y GE-Teens)</a>
+                                <a href="ministerio-infantil.html">Ministerio Infantil</a>
+                                <a href="ministerio-incideniciapublicapastoral.html">Ministerio de Incidencia Pública y Social</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <a href="recursos.html" class="nav-link">RECURSOS</a>
-                <a href="ubicaciones.html" class="nav-link active">UBICANOS</a>
+                <!-- Recursos -->
+                <div class="nav-dropdown-container">
+                    <button class="nav-link">RECURSOS</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="#">Plan conexión 20/30</a>
+                        <a href="#">Plan Estrategico regional</a>
+                        <a href="#">POA 2025</a>
+                    </div>
+                </div>
+                
+                <!-- Nuevo botón Reportes solo para admin -->
+                <a href="reportes.html" class="nav-link">REPORTES</a>
+                
+                <a href="ubicaciones.html" class="nav-link">UBICANOS</a>
             </nav>
-
             <div class="auth-buttons">
-                <a href="#" class="btn btn-login">Iniciar Sesión</a>
-                <a href="#" class="btn btn-register" id="registerBtn">Registrarse</a>
+                <a href="index.html" class="btn btn-logout">Salir</a>
             </div>
         </div>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido del mapa -->
     <main>
         <section class="map-section">
             <div class="container">
                 <h1 class="section-title">Nuestras Sedes</h1>
                 <p class="section-description">Encuentra todas nuestras iglesias en la Región Norte Chico</p>
-                
                 <div class="locations-container">
                     <div class="sedes-list">
-                        <h2>Nuestras Sedes y Encargados</h2>
+                        <div class="scroll-buttons">
+                            <button onclick="scrollSedes(-1)">⬆ Subir</button>
+                            <button onclick="scrollSedes(1)">⬇ Bajar</button>
+                        </div>
                         <ul>
                             <h3>DISTRITO - BARRANCA</h3>
                             <li>Cristo Viene Pronto - Jonas Cotrina Herrera - Bella Esperanza - Caraqueño</li>
@@ -481,95 +227,26 @@
                             <li>Misión: Legado de Fe - Tito Grover Pacheco Claros - Urb. Abisov/Chancay Cercado</li>
                         </ul>
                     </div>
-                    
                     <div class="map-wrapper">
                         <h2 class="map-section-title">LOCALIZADOR DE IGLESIAS</h2>
                         <iframe src="https://www.google.com/maps/d/embed?mid=17iZ_4QQEcvrVEPanEKC267GDlxPFK8U&ehbc=2E312F" 
-                                loading="lazy" 
-                                allowfullscreen>
-                        </iframe>
+                                loading="lazy" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal de registro -->
-    <div id="modal-register" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Regístrate</h2>
-            <form id="register-form">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Apellidos</label>
-                    <input type="text" id="lastname" name="lastname" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="birthdate">Fecha de nacimiento</label>
-                    <input type="date" id="birthdate" name="birthdate" required>
-                </div>
-                <div class="form-group">
-                    <label for="district">Distrito</label>
-                    <select id="district" name="district" required>
-                        <option value="">Selecciona tu distrito</option>
-                        <option value="Lima">Lima</option>
-                        <option value="Arequipa">Arequipa</option>
-                        <option value="Cusco">Cusco</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" minlength="6" required>
-                </div>
-                <button type="submit" class="btn-submit">Registrarse</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Script para el modal
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtener elementos
-            const modal = document.getElementById('modal-register');
-            const btnRegister = document.getElementById('registerBtn');
-            const spanClose = document.getElementsByClassName('close-modal')[0];
-            const form = document.getElementById('register-form');
-
-            // Abrir modal al hacer clic en Registrarse
-            btnRegister.onclick = function(e) {
-                e.preventDefault();
-                modal.style.display = 'flex';
-            }
-
-            // Cerrar modal al hacer clic en la X
-            spanClose.onclick = function() {
-                modal.style.display = 'none';
-            }
-
-            // Cerrar modal al hacer clic fuera del contenido
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            }
-
-            // Manejar el envío del formulario
-            form.onsubmit = function(e) {
-                e.preventDefault();
-                // Aquí iría la lógica para procesar el registro
-                alert('Registro enviado correctamente');
-                modal.style.display = 'none';
-                form.reset();
-            }
-        });
+        function scrollSedes(direction) {
+            const list = document.querySelector('.sedes-list');
+            const amount = 100;
+            list.scrollBy({
+                top: direction * amount,
+                behavior: 'smooth'
+            });
+        }
     </script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
