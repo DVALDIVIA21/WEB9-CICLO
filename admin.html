@@ -6,16 +6,87 @@
   <title>Iglesia de Dios del Perú</title>
   <link rel="icon" href="assets/images/logo.png" type="image/png" />
   <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* Estilos para el nuevo modal */
+    .promo-modal {
+      display: none; /* Oculto por defecto, se hará visible con JS */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 95%;
+      height: 1000%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex; /* Mantener flex para centrar */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .promo-modal-content {
+      position: relative;
+      background-color: #fefefe; /* Fondo blanco para las imágenes */
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      /* --- CAMBIOS AQUÍ para agrandar el modal --- */
+      width: 90%; /* Aumentar el ancho a un 90% */
+      max-width: 900px; /* Aumentar el ancho máximo a 900px */
+      /* --- FIN CAMBIOS --- */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      animation-name: animatetop;
+      animation-duration: 0.4s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+
+    /* Animación del modal */
+    @keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+
+    .promo-modal-content img {
+        max-width: 95%; /* Permitir que la imagen ocupe más espacio dentro del modal */
+        height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+
+    /* Botón de cerrar */
+    .promo-close-button {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer; /* Añadir cursor para indicar que es clickeable */
+    }
+
+    .promo-close-button:hover,
+    .promo-close-button:focus {
+      color: black;
+      text-decoration: none;
+    }
+
+    /* Pequeña mejora para la navegación: cursor en enlaces */
+    .navbar a {
+        cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <!-- Video de fondo -->
   <div class="video-background">
     <video autoplay muted loop id="bg-video">
       <source src="assets/images/fondo-animado.webm" type="video/webm" />
     </video>
     <div class="video-overlay"></div>
   </div>
- <!-- Barra de navegación superior para administrador -->
   <header class="navbar">
     <div class="container">
       <a href="admin.html" class="logo">
@@ -24,31 +95,29 @@
       <nav class="nav-links">
         <a href="admin.html" class="nav-link">Iglesia de Dios del Perú</a>
 
-        <!-- Quienes Somos -->
         <div class="nav-dropdown-container">
           <a href="#" class="nav-link">QUIENES SOMOS</a>
           <div class="nav-dropdown-menu">
-                        <a href="directiva-nacional.html">Directiva Nacional</a>
-                        <a href="mision-vision-valores.html">Misión-Visión-Valores</a>
-                        <a href="historia-iglesia.html">Historia de La Iglesia</a>
-                        <a href="principios-doctrinales.html">Principios Doctrinales</a>
-                        <a href="que-creemos.html">¿En que Creemos?</a>
+            <a href="directiva-nacional.html">Directiva Nacional</a>
+            <a href="mision-vision-valores.html">Misión-Visión-Valores</a>
+            <a href="historia-iglesia.html">Historia de La Iglesia</a>
+            <a href="principios-doctrinales.html">Principios Doctrinales</a>
+            <a href="que-creemos.html">¿En que Creemos?</a>
 
             <div class="nav-submenu-container">
               <button class="nav-submenu-btn">Distritos Eclesiales</button>
               <div class="nav-submenu">
-                                <a href="distrito-barranca-norte.html">Distrito Barranca Norte</a>
-                                <a href="distrito-barranca-centro.html">Distrito Barranca Centro</a>
-                                <a href="dsitrito-barranca-sur.html">Distrito Barranca Sur</a>
-                                <a href="distrito-medio-mundo.html">Distrito Medio Mundo</a>
-                                <a href="distrito-huaura.html">Distrito Huaura</a>
-                                <a href="distrito-huaral.html">Distrito Huaral</a>
+                <a href="distrito-barranca-norte.html">Distrito Barranca Norte</a>
+                <a href="distrito-barranca-centro.html">Distrito Barranca Centro</a>
+                <a href="dsitrito-barranca-sur.html">Distrito Barranca Sur</a>
+                <a href="distrito-medio-mundo.html">Distrito Medio Mundo</a>
+                <a href="distrito-huaura.html">Distrito Huaura</a>
+                <a href="distrito-huaral.html">Distrito Huaral</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Liderazgo -->
         <div class="nav-dropdown-container">
           <a href="#" class="nav-link">LIDERAZGO</a>
           <div class="nav-dropdown-menu">
@@ -67,45 +136,97 @@
           </div>
         </div>
 
-        <!-- Recursos -->
         <div class="nav-dropdown-container">
           <a href="#" class="nav-link">RECURSOS</a>
           <div class="nav-dropdown-menu">
-                        <a href="#">Plan conexión 20/30</a>
-                        <a href="plan-estrategico-regional.html">Plan Estrategico regional</a>
-                        <a href="plan-operativo-anual.html">POA 2025</a>
+            <a href="#">Plan conexión 20/30</a>
+            <a href="plan-estrategico-regional.html">Plan Estrategico regional</a>
+            <a href="plan-operativo-anual.html">POA 2025</a>
           </div>
         </div>
 
-
-      
         <a href="ubicaciones.html" class="nav-link">UBÍCANOS</a>
       </nav>
       <div class="auth-buttons"></div>
     </div>
   </header>
 
-  <!-- Contenido principal -->
   <main>
-    <!-- Modal de eventos -->
     <div id="eventModal" class="modal">
       <span class="close" onclick="closeModal()">&times;</span>
       <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
       <a class="next" onclick="changeSlide(1)">&#10095;</a>
 
       <div class="modal-content">
-        <img class="event-slide" src="assets/images/evento1.png" alt="Evento 1" />
+        <img class="event-slide" src="assets/images/evento1.jpeg" alt="Evento 1" />
         <img class="event-slide" src="assets/images/evento2.png" alt="Evento 2" />
         <img class="event-slide" src="assets/images/evento3.png" alt="Evento 3" />
         <img class="event-slide" src="assets/images/evento4.png" alt="Evento 4" />
         <img class="event-slide" src="assets/images/evento5.png" alt="Evento 5" />
+        <img class="event-slide" src="assets/images/evento6.jpeg" alt="Evento 6" />
+      </div>
+    </div>
+
+    <div id="promoModal" class="promo-modal">
+      <div class="promo-modal-content">
+        <span class="promo-close-button" onclick="closePromoModal()">&times;</span>
+        <img src="assets/images/evento1.jpeg" alt="Imagen Promocional 2" />
       </div>
     </div>
   </main>
 
-  <!-- Botón Mostrar eventos -->
   <button id="showEventsBtn" onclick="openModal()">Mostrar eventos</button>
 
   <script src="scripts/app.js"></script>
+  <script>
+    // JavaScript para el NUEVO MODAL de promoción
+    var promoModal = document.getElementById("promoModal");
+
+    function openPromoModal() {
+      promoModal.style.display = "flex"; // Usar flex para centrar
+    }
+
+    function closePromoModal() {
+      promoModal.style.display = "none";
+    }
+
+    // Cierra el modal si se hace clic fuera de su contenido
+    window.onclick = function(event) {
+      if (event.target == promoModal) {
+        promoModal.style.display = "none";
+      }
+    }
+
+    // Activar el modal de promoción automáticamente al cargar la página
+    window.onload = openPromoModal;
+
+    // JavaScript para el modal de eventos (si 'app.js' no lo maneja completamente)
+    // Asegúrate de que estas funciones existan en 'app.js' o defínelas aquí
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function openModal() {
+      document.getElementById("eventModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("eventModal").style.display = "none";
+    }
+
+    function changeSlide(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("event-slide");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+  </script>
 </body>
 </html>
